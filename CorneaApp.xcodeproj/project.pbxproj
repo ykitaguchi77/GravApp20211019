@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF94CD60262BF98E00AAC1A3 /* CorneaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */; };
+		BF94CD62262BF98E00AAC1A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD61262BF98E00AAC1A3 /* ContentView.swift */; };
+		BF94CD64262BF98F00AAC1A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF94CD63262BF98F00AAC1A3 /* Assets.xcassets */; };
+		BF94CD67262BF98F00AAC1A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF94CD66262BF98F00AAC1A3 /* Preview Assets.xcassets */; };
+		BF94CD69262BF98F00AAC1A3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD68262BF98F00AAC1A3 /* Persistence.swift */; };
+		BF94CD6C262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD6A262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld */; };
+		BF94CD77262BF98F00AAC1A3 /* CorneaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD76262BF98F00AAC1A3 /* CorneaAppTests.swift */; };
+		BF94CD82262BF98F00AAC1A3 /* CorneaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD81262BF98F00AAC1A3 /* CorneaAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF94CD73262BF98F00AAC1A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF94CD54262BF98E00AAC1A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF94CD5B262BF98E00AAC1A3;
+			remoteInfo = CorneaApp;
+		};
+		BF94CD7E262BF98F00AAC1A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF94CD54262BF98E00AAC1A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF94CD5B262BF98E00AAC1A3;
+			remoteInfo = CorneaApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF94CD5C262BF98E00AAC1A3 /* CorneaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorneaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneaAppApp.swift; sourceTree = "<group>"; };
+		BF94CD61262BF98E00AAC1A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BF94CD63262BF98F00AAC1A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF94CD66262BF98F00AAC1A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF94CD68262BF98F00AAC1A3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		BF94CD6B262BF98F00AAC1A3 /* CorneaApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CorneaApp.xcdatamodel; sourceTree = "<group>"; };
+		BF94CD6D262BF98F00AAC1A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF94CD72262BF98F00AAC1A3 /* CorneaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorneaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF94CD76262BF98F00AAC1A3 /* CorneaAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneaAppTests.swift; sourceTree = "<group>"; };
+		BF94CD78262BF98F00AAC1A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF94CD7D262BF98F00AAC1A3 /* CorneaAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorneaAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF94CD81262BF98F00AAC1A3 /* CorneaAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneaAppUITests.swift; sourceTree = "<group>"; };
+		BF94CD83262BF99000AAC1A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF94CD59262BF98E00AAC1A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF94CD6F262BF98F00AAC1A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF94CD7A262BF98F00AAC1A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF94CD53262BF98E00AAC1A3 = {
+			isa = PBXGroup;
+			children = (
+				BF94CD5E262BF98E00AAC1A3 /* CorneaApp */,
+				BF94CD75262BF98F00AAC1A3 /* CorneaAppTests */,
+				BF94CD80262BF98F00AAC1A3 /* CorneaAppUITests */,
+				BF94CD5D262BF98E00AAC1A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF94CD5D262BF98E00AAC1A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF94CD5C262BF98E00AAC1A3 /* CorneaApp.app */,
+				BF94CD72262BF98F00AAC1A3 /* CorneaAppTests.xctest */,
+				BF94CD7D262BF98F00AAC1A3 /* CorneaAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF94CD5E262BF98E00AAC1A3 /* CorneaApp */ = {
+			isa = PBXGroup;
+			children = (
+				BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */,
+				BF94CD61262BF98E00AAC1A3 /* ContentView.swift */,
+				BF94CD63262BF98F00AAC1A3 /* Assets.xcassets */,
+				BF94CD68262BF98F00AAC1A3 /* Persistence.swift */,
+				BF94CD6D262BF98F00AAC1A3 /* Info.plist */,
+				BF94CD6A262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld */,
+				BF94CD65262BF98F00AAC1A3 /* Preview Content */,
+			);
+			path = CorneaApp;
+			sourceTree = "<group>";
+		};
+		BF94CD65262BF98F00AAC1A3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BF94CD66262BF98F00AAC1A3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BF94CD75262BF98F00AAC1A3 /* CorneaAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF94CD76262BF98F00AAC1A3 /* CorneaAppTests.swift */,
+				BF94CD78262BF98F00AAC1A3 /* Info.plist */,
+			);
+			path = CorneaAppTests;
+			sourceTree = "<group>";
+		};
+		BF94CD80262BF98F00AAC1A3 /* CorneaAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF94CD81262BF98F00AAC1A3 /* CorneaAppUITests.swift */,
+				BF94CD83262BF99000AAC1A3 /* Info.plist */,
+			);
+			path = CorneaAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF94CD5B262BF98E00AAC1A3 /* CorneaApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF94CD86262BF99000AAC1A3 /* Build configuration list for PBXNativeTarget "CorneaApp" */;
+			buildPhases = (
+				BF94CD58262BF98E00AAC1A3 /* Sources */,
+				BF94CD59262BF98E00AAC1A3 /* Frameworks */,
+				BF94CD5A262BF98E00AAC1A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CorneaApp;
+			productName = CorneaApp;
+			productReference = BF94CD5C262BF98E00AAC1A3 /* CorneaApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF94CD71262BF98F00AAC1A3 /* CorneaAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF94CD89262BF99000AAC1A3 /* Build configuration list for PBXNativeTarget "CorneaAppTests" */;
+			buildPhases = (
+				BF94CD6E262BF98F00AAC1A3 /* Sources */,
+				BF94CD6F262BF98F00AAC1A3 /* Frameworks */,
+				BF94CD70262BF98F00AAC1A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF94CD74262BF98F00AAC1A3 /* PBXTargetDependency */,
+			);
+			name = CorneaAppTests;
+			productName = CorneaAppTests;
+			productReference = BF94CD72262BF98F00AAC1A3 /* CorneaAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF94CD7C262BF98F00AAC1A3 /* CorneaAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF94CD8C262BF99000AAC1A3 /* Build configuration list for PBXNativeTarget "CorneaAppUITests" */;
+			buildPhases = (
+				BF94CD79262BF98F00AAC1A3 /* Sources */,
+				BF94CD7A262BF98F00AAC1A3 /* Frameworks */,
+				BF94CD7B262BF98F00AAC1A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF94CD7F262BF98F00AAC1A3 /* PBXTargetDependency */,
+			);
+			name = CorneaAppUITests;
+			productName = CorneaAppUITests;
+			productReference = BF94CD7D262BF98F00AAC1A3 /* CorneaAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF94CD54262BF98E00AAC1A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					BF94CD5B262BF98E00AAC1A3 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					BF94CD71262BF98F00AAC1A3 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BF94CD5B262BF98E00AAC1A3;
+					};
+					BF94CD7C262BF98F00AAC1A3 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = BF94CD5B262BF98E00AAC1A3;
+					};
+				};
+			};
+			buildConfigurationList = BF94CD57262BF98E00AAC1A3 /* Build configuration list for PBXProject "CorneaApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF94CD53262BF98E00AAC1A3;
+			productRefGroup = BF94CD5D262BF98E00AAC1A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF94CD5B262BF98E00AAC1A3 /* CorneaApp */,
+				BF94CD71262BF98F00AAC1A3 /* CorneaAppTests */,
+				BF94CD7C262BF98F00AAC1A3 /* CorneaAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF94CD5A262BF98E00AAC1A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF94CD67262BF98F00AAC1A3 /* Preview Assets.xcassets in Resources */,
+				BF94CD64262BF98F00AAC1A3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF94CD70262BF98F00AAC1A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF94CD7B262BF98F00AAC1A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF94CD58262BF98E00AAC1A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF94CD69262BF98F00AAC1A3 /* Persistence.swift in Sources */,
+				BF94CD62262BF98E00AAC1A3 /* ContentView.swift in Sources */,
+				BF94CD60262BF98E00AAC1A3 /* CorneaAppApp.swift in Sources */,
+				BF94CD6C262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF94CD6E262BF98F00AAC1A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF94CD77262BF98F00AAC1A3 /* CorneaAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF94CD79262BF98F00AAC1A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF94CD82262BF98F00AAC1A3 /* CorneaAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF94CD74262BF98F00AAC1A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF94CD5B262BF98E00AAC1A3 /* CorneaApp */;
+			targetProxy = BF94CD73262BF98F00AAC1A3 /* PBXContainerItemProxy */;
+		};
+		BF94CD7F262BF98F00AAC1A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF94CD5B262BF98E00AAC1A3 /* CorneaApp */;
+			targetProxy = BF94CD7E262BF98F00AAC1A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BF94CD84262BF99000AAC1A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF94CD85262BF99000AAC1A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF94CD87262BF99000AAC1A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CorneaApp/Preview Content\"";
+				DEVELOPMENT_TEAM = FKLM5SV532;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CorneaApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF94CD88262BF99000AAC1A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"CorneaApp/Preview Content\"";
+				DEVELOPMENT_TEAM = FKLM5SV532;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = CorneaApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF94CD8A262BF99000AAC1A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKLM5SV532;
+				INFOPLIST_FILE = CorneaAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CorneaApp.app/CorneaApp";
+			};
+			name = Debug;
+		};
+		BF94CD8B262BF99000AAC1A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKLM5SV532;
+				INFOPLIST_FILE = CorneaAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CorneaApp.app/CorneaApp";
+			};
+			name = Release;
+		};
+		BF94CD8D262BF99000AAC1A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKLM5SV532;
+				INFOPLIST_FILE = CorneaAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CorneaApp;
+			};
+			name = Debug;
+		};
+		BF94CD8E262BF99000AAC1A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FKLM5SV532;
+				INFOPLIST_FILE = CorneaAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CorneaApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF94CD57262BF98E00AAC1A3 /* Build configuration list for PBXProject "CorneaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF94CD84262BF99000AAC1A3 /* Debug */,
+				BF94CD85262BF99000AAC1A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF94CD86262BF99000AAC1A3 /* Build configuration list for PBXNativeTarget "CorneaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF94CD87262BF99000AAC1A3 /* Debug */,
+				BF94CD88262BF99000AAC1A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF94CD89262BF99000AAC1A3 /* Build configuration list for PBXNativeTarget "CorneaAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF94CD8A262BF99000AAC1A3 /* Debug */,
+				BF94CD8B262BF99000AAC1A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF94CD8C262BF99000AAC1A3 /* Build configuration list for PBXNativeTarget "CorneaAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF94CD8D262BF99000AAC1A3 /* Debug */,
+				BF94CD8E262BF99000AAC1A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF94CD6A262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF94CD6B262BF98F00AAC1A3 /* CorneaApp.xcdatamodel */,
+			);
+			currentVersion = BF94CD6B262BF98F00AAC1A3 /* CorneaApp.xcdatamodel */;
+			path = CorneaApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BF94CD54262BF98E00AAC1A3 /* Project object */;
+}
