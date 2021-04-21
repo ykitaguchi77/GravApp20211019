@@ -26,6 +26,7 @@
 		BF94CE86262D4D8000AAC1A3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE85262D4D8000AAC1A3 /* StringExtension.swift */; };
 		BF94CE8B262D4D9F00AAC1A3 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE8A262D4D9F00AAC1A3 /* UIImageExtension.swift */; };
 		BF94CE90262D62B000AAC1A3 /* CameraConfirmPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE8F262D62B000AAC1A3 /* CameraConfirmPage.swift */; };
+		BF94CE9F262FE7E000AAC1A3 /* DateToStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE9E262FE7E000AAC1A3 /* DateToStringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		BF94CE85262D4D8000AAC1A3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BF94CE8A262D4D9F00AAC1A3 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BF94CE8F262D62B000AAC1A3 /* CameraConfirmPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfirmPage.swift; sourceTree = "<group>"; };
+		BF94CE9E262FE7E000AAC1A3 /* DateToStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				BF94CE80262D4D6700AAC1A3 /* CGRectExtension.swift */,
 				BF94CE85262D4D8000AAC1A3 /* StringExtension.swift */,
 				BF94CE8A262D4D9F00AAC1A3 /* UIImageExtension.swift */,
+				BF94CE9E262FE7E000AAC1A3 /* DateToStringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				BF94CE90262D62B000AAC1A3 /* CameraConfirmPage.swift in Sources */,
 				BF94CD60262BF98E00AAC1A3 /* CorneaAppApp.swift in Sources */,
 				BF94CE79262D4D3F00AAC1A3 /* CGImageExtension.swift in Sources */,
+				BF94CE9F262FE7E000AAC1A3 /* DateToStringExtension.swift in Sources */,
 				BF94CE8B262D4D9F00AAC1A3 /* UIImageExtension.swift in Sources */,
 				BF94CE86262D4D8000AAC1A3 /* StringExtension.swift in Sources */,
 				BF94CE81262D4D6700AAC1A3 /* CGRectExtension.swift in Sources */,
