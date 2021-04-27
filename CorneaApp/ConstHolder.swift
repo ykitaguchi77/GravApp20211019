@@ -11,12 +11,9 @@ class ConstHolder{
     static public let QUESTIONFILENAME = "testq.txt"
     static public let EVALIMAGESIZE = CGSize(width: 224, height: 224)
     static public let HWRATIO: CGFloat = 1 //縦横比
-    static public let IMAGESCALE: CGFloat = 0.7 //プレビュー画面の大きさ
+    static public let IMAGESCALE: CGFloat = 0.9 //プレビュー画面の大きさ
     static public let FACEMASKNAME1 = "front"
-    static public let FACEMASKNAME2 = "left"
-    static public let FACEMASKNAME3 = "right"
-    static public let FACEMASKNAME4 = "down"
-    static public let FACEMASKNAME5 = "up"
+
     static public let PROCESSINGMASKNAME = "Processing"
     
     

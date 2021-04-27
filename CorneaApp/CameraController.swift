@@ -4,6 +4,7 @@
 //
 //  Created by Kuniaki Ohara on 2021/01/06.
 //
+/*
 import SwiftUI
 import AVFoundation
 
@@ -23,6 +24,7 @@ struct CALayerView: UIViewControllerRepresentable {
       caLayer.frame = uiViewController.view.layer.frame
   }
 }
+
 
 class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObject{
   private (set) public var HasImage = false
@@ -49,11 +51,11 @@ class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObje
   }
   
   func setupCaptureSession(session: AVCaptureSession) {
-      session.sessionPreset = AVCaptureSession.Preset.photo
+      session.sessionPreset = AVCaptureSession.Preset.photo //可能な限り最高画質で撮る
   }
   
   func getDevices() -> (AVCaptureDevice?, AVCaptureDevice?) {
-    let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
+      let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInTelephotoCamera, AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified) //ズームカメラ使用
       // プロパティの条件を満たしたカメラデバイスの取得
       let devices = deviceDiscoverySession.devices
 
@@ -67,7 +69,7 @@ class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObje
               innerCamera = device
           }
       }
-      
+            
       return (mainCamera, innerCamera)
   }
   
@@ -97,10 +99,11 @@ class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObje
           self.cameraPreviewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
       }
   }
+
   
   public override init(){
       super.init()
-      
+          
       setupCaptureSession(session: self.captureSession)
       let (mainCamera, inCamera) = getDevices()
       self.currentDevice = mainCamera
@@ -117,6 +120,24 @@ class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObje
       NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: nil, using: OrientationChanged)
   }
   
+    
+    
+  public func set(zoom: CGFloat){
+      let resolvedScale = 3.0 //magnification
+      let device = self.captureDeviceInput.device
+    
+      do {
+          try device.lockForConfiguration()
+          device.videoZoomFactor = resolvedScale
+          device.unlockForConfiguration()
+      }
+      catch {
+          print(error.localizedDescription)
+      }
+      }
+    
+    
+    
   // CAUTION !!! UIDevice.current.orientation does NOT work for initialization !!!
   // Use interfaceOrientation instead!!!!
   public func OrientationChanged(notification: Notification){
@@ -253,3 +274,4 @@ class CameraController : NSObject, AVCapturePhotoCaptureDelegate, ObservableObje
       OrientationChanged(notification: Notification(name: UIDevice.orientationDidChangeNotification))
   }
 }
+ */

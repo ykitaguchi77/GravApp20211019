@@ -27,6 +27,11 @@
 		BF94CE8B262D4D9F00AAC1A3 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE8A262D4D9F00AAC1A3 /* UIImageExtension.swift */; };
 		BF94CE90262D62B000AAC1A3 /* CameraConfirmPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE8F262D62B000AAC1A3 /* CameraConfirmPage.swift */; };
 		BF94CE9F262FE7E000AAC1A3 /* DateToStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE9E262FE7E000AAC1A3 /* DateToStringExtension.swift */; };
+		BFAC704B2637DF4300A606CE /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC704A2637DF4300A606CE /* CameraView.swift */; };
+		BFAC70502637DF7300A606CE /* CameraActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC704F2637DF7300A606CE /* CameraActions.swift */; };
+		BFAC70552637DF9800A606CE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70542637DF9800A606CE /* CameraViewController.swift */; };
+		BFAC705A2637E19E00A606CE /* CameraControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70592637E19E00A606CE /* CameraControllerDelegate.swift */; };
+		BFAC70622637E20400A606CE /* UserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70612637E20400A606CE /* UserEvents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +78,11 @@
 		BF94CE8A262D4D9F00AAC1A3 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BF94CE8F262D62B000AAC1A3 /* CameraConfirmPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraConfirmPage.swift; sourceTree = "<group>"; };
 		BF94CE9E262FE7E000AAC1A3 /* DateToStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringExtension.swift; sourceTree = "<group>"; };
+		BFAC704A2637DF4300A606CE /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		BFAC704F2637DF7300A606CE /* CameraActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraActions.swift; sourceTree = "<group>"; };
+		BFAC70542637DF9800A606CE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		BFAC70592637E19E00A606CE /* CameraControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraControllerDelegate.swift; sourceTree = "<group>"; };
+		BFAC70612637E20400A606CE /* UserEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvents.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +135,11 @@
 			children = (
 				BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */,
 				BF94CE65262D4B1E00AAC1A3 /* CameraController.swift */,
+				BFAC704A2637DF4300A606CE /* CameraView.swift */,
+				BFAC704F2637DF7300A606CE /* CameraActions.swift */,
+				BFAC70542637DF9800A606CE /* CameraViewController.swift */,
+				BFAC70592637E19E00A606CE /* CameraControllerDelegate.swift */,
+				BFAC70612637E20400A606CE /* UserEvents.swift */,
 				BF94CE72262D4CE600AAC1A3 /* ResultHolder.swift */,
 				BF94CE6D262D4B8800AAC1A3 /* ConstHolder.swift */,
 				BF94CE77262D4D2A00AAC1A3 /* Extensions */,
@@ -322,16 +337,21 @@
 				BF94CD62262BF98E00AAC1A3 /* ContentView.swift in Sources */,
 				BF94CE66262D4B1E00AAC1A3 /* CameraController.swift in Sources */,
 				BF94CE03262CFD5C00AAC1A3 /* CameraPage.swift in Sources */,
+				BFAC705A2637E19E00A606CE /* CameraControllerDelegate.swift in Sources */,
 				BF94CE6E262D4B8800AAC1A3 /* ConstHolder.swift in Sources */,
 				BF94CE90262D62B000AAC1A3 /* CameraConfirmPage.swift in Sources */,
 				BF94CD60262BF98E00AAC1A3 /* CorneaAppApp.swift in Sources */,
+				BFAC70622637E20400A606CE /* UserEvents.swift in Sources */,
 				BF94CE79262D4D3F00AAC1A3 /* CGImageExtension.swift in Sources */,
 				BF94CE9F262FE7E000AAC1A3 /* DateToStringExtension.swift in Sources */,
 				BF94CE8B262D4D9F00AAC1A3 /* UIImageExtension.swift in Sources */,
 				BF94CE86262D4D8000AAC1A3 /* StringExtension.swift in Sources */,
+				BFAC704B2637DF4300A606CE /* CameraView.swift in Sources */,
 				BF94CE81262D4D6700AAC1A3 /* CGRectExtension.swift in Sources */,
 				BF94CDBF262C1CB400AAC1A3 /* InformationView.swift in Sources */,
 				BF94CE73262D4CE600AAC1A3 /* ResultHolder.swift in Sources */,
+				BFAC70552637DF9800A606CE /* CameraViewController.swift in Sources */,
+				BFAC70502637DF7300A606CE /* CameraActions.swift in Sources */,
 				BF94CD6C262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
