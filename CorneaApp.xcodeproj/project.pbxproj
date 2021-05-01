@@ -18,7 +18,6 @@
 		BF94CDBF262C1CB400AAC1A3 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CDBE262C1CB400AAC1A3 /* InformationView.swift */; };
 		BF94CDC4262C1CC000AAC1A3 /* SendDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CDC3262C1CC000AAC1A3 /* SendDataView.swift */; };
 		BF94CE03262CFD5C00AAC1A3 /* CameraPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE02262CFD5C00AAC1A3 /* CameraPage.swift */; };
-		BF94CE66262D4B1E00AAC1A3 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE65262D4B1E00AAC1A3 /* CameraController.swift */; };
 		BF94CE6E262D4B8800AAC1A3 /* ConstHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE6D262D4B8800AAC1A3 /* ConstHolder.swift */; };
 		BF94CE73262D4CE600AAC1A3 /* ResultHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE72262D4CE600AAC1A3 /* ResultHolder.swift */; };
 		BF94CE79262D4D3F00AAC1A3 /* CGImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE78262D4D3F00AAC1A3 /* CGImageExtension.swift */; };
@@ -69,7 +68,6 @@
 		BF94CDBE262C1CB400AAC1A3 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
 		BF94CDC3262C1CC000AAC1A3 /* SendDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDataView.swift; sourceTree = "<group>"; };
 		BF94CE02262CFD5C00AAC1A3 /* CameraPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPage.swift; sourceTree = "<group>"; };
-		BF94CE65262D4B1E00AAC1A3 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		BF94CE6D262D4B8800AAC1A3 /* ConstHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstHolder.swift; sourceTree = "<group>"; };
 		BF94CE72262D4CE600AAC1A3 /* ResultHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHolder.swift; sourceTree = "<group>"; };
 		BF94CE78262D4D3F00AAC1A3 /* CGImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExtension.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */,
-				BF94CE65262D4B1E00AAC1A3 /* CameraController.swift */,
 				BFAC704A2637DF4300A606CE /* CameraView.swift */,
 				BFAC704F2637DF7300A606CE /* CameraActions.swift */,
 				BFAC70542637DF9800A606CE /* CameraViewController.swift */,
@@ -335,7 +332,6 @@
 				BF94CD69262BF98F00AAC1A3 /* Persistence.swift in Sources */,
 				BF94CDC4262C1CC000AAC1A3 /* SendDataView.swift in Sources */,
 				BF94CD62262BF98E00AAC1A3 /* ContentView.swift in Sources */,
-				BF94CE66262D4B1E00AAC1A3 /* CameraController.swift in Sources */,
 				BF94CE03262CFD5C00AAC1A3 /* CameraPage.swift in Sources */,
 				BFAC705A2637E19E00A606CE /* CameraControllerDelegate.swift in Sources */,
 				BF94CE6E262D4B8800AAC1A3 /* ConstHolder.swift in Sources */,
