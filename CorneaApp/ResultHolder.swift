@@ -20,7 +20,8 @@ class ResultHolder{
         
         return instance!
     }
-    
+
+    /*
     private (set) public var ID = ""
     public func SetID(id: String) -> Bool{
         let isValid = id != ""
@@ -34,14 +35,16 @@ class ResultHolder{
         
         return isValid
     }
-    
+    */
+ 
+ 
     private (set) public var Images: [Int:CGImage] = [:]
     public func GetUIImages() -> [UIImage]{
         var uiImages: [UIImage] = []
         let length = Images.count
         for i in 0 ..< length {
             if (Images[i] != nil){
-                uiImages.append(UIImage(cgImage: Images[i]!.cropToSquare()))
+                uiImages.append(UIImage(cgImage: Images[i]! ))
             }
         }
         

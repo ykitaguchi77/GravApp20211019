@@ -8,9 +8,6 @@
 import SwiftUI
 
 //変数を定義
-
-
-
 struct Informations: View {
     @EnvironmentObject var user: User
     @State private var backToMain = false  //保存してメインに戻るボタン
@@ -19,12 +16,17 @@ struct Informations: View {
     var body: some View {
         NavigationView{
                 Form{
-                    DatePicker("入力日時", selection: $user.date)
-                        HStack{
-                            
-                            Text(" I D ")
-                            TextField("idを入力してください", text: $user.id)
-                        }
+                    HStack{
+                        Text("入力日時")
+                        Text(self.user.date, style: .date)
+                    }
+                    
+                    //DatePicker("入力日時", selection: $user.date)
+                    
+                    HStack{
+                        Text(" I D ")
+                        TextField("idを入力してください", text: $user.id)
+                    }
                         
                     Picker(selection: $user.selected_hospital,
                                label: Text("施設")) {
@@ -44,8 +46,10 @@ struct Informations: View {
                             Text("自由記載欄")
                             TextField("", text: $user.free_disease)
                                 .keyboardType(.default)
-                        }
+                        }.layoutPriority(1)
                 }.navigationTitle("患者情報入力")
+                .onAppear(){
+                 }
             }
                 
             
@@ -67,9 +71,10 @@ struct Informations: View {
 }
 
 
+/*
 struct Informations_Previews: PreviewProvider {
     static var previews: some View {
         Informations()
     }
 }
-
+*/

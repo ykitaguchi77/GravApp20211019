@@ -66,7 +66,7 @@ struct ContentView: View {
                 .background(Color.black)
                 .padding()
             .sheet(isPresented: self.$isPatientInfo) {
-                Informations()
+                Informations().environmentObject(self.user) //こう書いておかないとmissing as ancestorエラーが時々でる
             }
                         
             Button(action: { self.goSendData = true /*またはself.show.toggle() */ }) {

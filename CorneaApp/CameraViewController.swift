@@ -18,6 +18,7 @@ import Photos
 
 public class PreviewView: UIView {
     
+    //プレビューレイヤーを生成
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
         guard let layer = layer as? AVCaptureVideoPreviewLayer else {
             fatalError("Expected `AVCaptureVideoPreviewLayer` type for layer. Check PreviewView.layerClass implementation.")
@@ -43,6 +44,7 @@ public class CameraViewController: UIViewController {
     // MARK: Public Variable Declarations
     
     /// Name of the application using the camera
+    //カメラの初期設定2
     public var applicationName: String?
     
     public var preferredStartingCameraType: AVCaptureDevice.DeviceType?
@@ -56,10 +58,10 @@ public class CameraViewController: UIViewController {
     public var maximumVideoDuration: Double = 10.0
     
     /// Video capture quality
-    public var videoQuality: AVCaptureSession.Preset = .high
+    public var videoQuality: AVCaptureSession.Preset = .hd4K3840x2160
     
     /// Flash Mode
-    public var flashMode: AVCaptureDevice.FlashMode = .off
+    public var flashMode: AVCaptureDevice.FlashMode = .on
     
     /// Sets whether Pinch to Zoom is enabled for the capture session
     public var pinchToZoom = true
@@ -79,7 +81,7 @@ public class CameraViewController: UIViewController {
     public var swipeToZoom = true
     
     /// Sets whether swipe vertically gestures should be inverted
-    public var swipeToZoomInverted = false
+    public var swipeToZoomInverted = true
     
     /// Set whether SwiftyCam should allow background audio from other applications
     public var allowBackgroundAudio = true
@@ -91,6 +93,9 @@ public class CameraViewController: UIViewController {
     /// Setting to true will prompt user for access to microphone on View Controller launch.
     public var audioEnabled = true
     
+    public var tempImage: UIImage!
+    
+    
     // MARK: Public Get-only Variable Declarations
     
     /// Returns true if video is currently being recorded
@@ -100,6 +105,8 @@ public class CameraViewController: UIViewController {
     /// Returns true if the capture session is currently running
     
     private(set) public var isSessionRunning     = false
+
+    
     
     // MARK: Private Constant Declarations
     
@@ -153,9 +160,16 @@ public class CameraViewController: UIViewController {
         
         // Set up the video preview view.
         previewView.session = session
-        previewView.videoPreviewLayer.videoGravity = videoGravity
+        previewView.videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         previewView.videoPreviewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
         previewView.frame = view.frame
+        
+        //カメラのスクリーンサイズ
+        let screenSize = previewView.bounds.size
+        let widthAspect = screenSize.width
+        let heightAspect = screenSize.height
+        previewView.videoPreviewLayer.frame = CGRect(x: 0, y: heightAspect * 0.2, width: widthAspect, height: widthAspect * 0.9)
+
         view.addSubview(previewView)
         
         // Add Gesture Recognizers
@@ -219,6 +233,7 @@ public class CameraViewController: UIViewController {
                 // Only setup observers and start the session if setup succeeded.
                 //                self.addObservers()
                 
+                //撮影用プレビュースタート
                 // Begin Session
                 self.session.startRunning()
                 self.isSessionRunning = self.session.isRunning
@@ -440,8 +455,10 @@ public class CameraViewController: UIViewController {
         }
     }
     
+    
     // MARK: Public Functions
     
+    //写真撮る
     public func takePhoto() {
         sessionQueue.async {
             let photoSettings = AVCapturePhotoSettings()
@@ -576,15 +593,15 @@ public class CameraViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     
     /// - Tag: DidFinishCaptureFor
     // Maybe I will change it do willCapturePhotoFor
-    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
+    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, photo: AVCapturePhoto, error: Error?) {
         DispatchQueue.main.async {
+            
             // Flash the screen to signal that SwiftUICam took a photo.
             self.view.layer.opacity = 0
             UIView.animate(withDuration: 0.5) {
@@ -600,26 +617,38 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         guard error == nil else { print("Error capturing photo: \(error!)"); return }
         
         if let photoData = photo.fileDataRepresentation() {
+
             let dataProvider = CGDataProvider(data: photoData as CFData)
             let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!,
                                      decode: nil,
                                      shouldInterpolate: true,
                                      intent: CGColorRenderingIntent.defaultIntent)
+
+            
+            
+            //プレビュー画面を止める
+            self.session.stopRunning()
             
             // TODO: implement imageOrientation
             // Set proper orientation for photo
             // If camera is currently set to front camera, flip image
             //          let imageOrientation = getImageOrientation()
-            
+
             // For now, it is only right
             let image = UIImage(cgImage: cgImageRef!, scale: 1, orientation: .right)
             
             //2 options to save
             //First is to use UIImageWriteToSavedPhotosAlbum
             savePhoto(image)
+            
             //Second is adapting Apple documentation with data of the modified image
             //savePhoto(image.jpegData(compressionQuality: 1)!)
             
+            //撮影した画像をresultHolderに格納する
+            let imageOrientation = getImageOrientation()
+            let cgImage = UIImage(data: photoData)!.cgImage!.cropToSquare()
+            let rawImage = UIImage(cgImage: cgImage).rotatedBy(orientation: imageOrientation)
+            setImage(cgImage: rawImage.cgImage!)
             
             DispatchQueue.main.async {
                 self.delegate?.didFinishProcessingPhoto(image)
@@ -627,6 +656,36 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         }
     }
 }
+
+
+public func setImage(cgImage: CGImage){
+    ResultHolder.GetInstance().SetImage(index: 0, cgImage: cgImage)
+}
+
+
+func getImageOrientation() -> UIImage.Orientation{
+    var imageOrientation = UIImage.Orientation.up
+        
+    switch UIApplication.shared.windows.first?.windowScene?.interfaceOrientation{
+    case .portrait:
+        imageOrientation = UIImage.Orientation.right
+    case .portraitUpsideDown:
+        imageOrientation = UIImage.Orientation.left
+    case .landscapeLeft:
+        imageOrientation = UIImage.Orientation.down
+    case .landscapeRight:
+        imageOrientation = UIImage.Orientation.up
+    default:
+        print("taken image unknown orientation")
+        break
+    }
+    
+    return imageOrientation
+}
+
+
+
+
 
 extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
     /// - Tag: DidStartRecording
@@ -705,7 +764,7 @@ extension CameraViewController {
             // Ignore taps
             return
         }
-        
+
         let screenSize = previewView.bounds.size
         let tapPoint = tap.location(in: previewView)
         let x = tapPoint.y / screenSize.height
@@ -834,3 +893,45 @@ extension CameraViewController {
         }
     }
 }
+
+/*
+extension CGImage {
+    var data: Data? {
+        guard let mutableData = CFDataCreateMutable(nil, 0),
+            let destination = CGImageDestinationCreateWithData(mutableData, "public.png" as CFString, 1, nil) else { return nil }
+        CGImageDestinationAddImage(destination, self, nil)
+        guard CGImageDestinationFinalize(destination) else { return nil }
+        return mutableData as Data
+    }
+    
+    func cropToSquare() -> UIImage {
+        let rectlength = min(self.width, self.height)
+        let left = (self.width - rectlength / 3) / 2
+        let top = (self.height - rectlength / 3) / 2
+        let croppingRect = CGRect(x: left, y: top, width: rectlength * 2/3, height: rectlength * 2/3)
+        let imageRef = self.cropping(to: croppingRect)!
+        let croppedImage = UIImage(cgImage: imageRef)
+        
+        return croppedImage
+    }
+}
+*/
+
+extension UIImage {
+    func croppingToCenterSquare() -> UIImage {
+        let cgImage = self.cgImage!
+        var newWidth = CGFloat(cgImage.width)
+        var newHeight = CGFloat(cgImage.height)
+        if newWidth > newHeight {
+            newWidth = newHeight
+        } else {
+            newHeight = newWidth
+        }
+        let x = (CGFloat(cgImage.width) - newWidth)/2
+        let y = (CGFloat(cgImage.height) - newHeight)/2
+        let rect = CGRect(x: x, y: y, width: newWidth, height: newHeight)
+        let croppedCGImage = cgImage.cropping(to: rect)!
+        return UIImage(cgImage: croppedCGImage, scale: self.scale, orientation: self.imageOrientation)
+    }
+}
+

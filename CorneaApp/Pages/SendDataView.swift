@@ -22,30 +22,21 @@ struct SendData: View {
                             GetImageStack(images: ResultHolder.GetInstance().GetUIImages(), shorterSide: GetShorterSide(screenSize: bodyView.size))
                         }
                         
-                        Text("撮影日時:")
-                        Text(self.user.date, style: .date)
+                        HStack{
+                            Text("撮影日時:")
+                            Text(self.user.date, style: .date)
+                        }
                         Text("ID: \(self.user.id)")
-                        Text("施設: \(self.user.selected_hospital)")
-                        Text("診断名: \(self.user.selected_disease)")
+                        Text("施設: \(self.user.hospitals[user.selected_hospital])")
+                        Text("診断名: \(user.disease[user.selected_disease])")
                         Text("自由記載: \(self.user.free_disease)")
                     }
                 }
-
-                
-        
-        /*
-        Form {
-                    TextField("撮影日時", Date: $user.date)
-                    TextField("ID", text: $user.id)
-                    TextField("施設", text: $user.selected_hospital)
-                TextField("診断名", text: self.hospitals[self.selected_disease])
-                    TextField("自由記載", text: $user.free_disease)
-            }
-            .disabled(user.id.isEmpty)
-        */
-            
+                            
                 Spacer()
                 Button(action: {
+                    //SetData()
+                    SendDataset()
                 }) {
                     Text("送信")
                         .foregroundColor(Color.white)
@@ -54,11 +45,15 @@ struct SendData: View {
                     .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
                     .background(Color.black)
                     .padding()
+                .onAppear{
+                    ResultHolder.GetInstance().SetAnswer(q1: stringDate(), q2: user.id, q3: self.user.hospitals[user.selected_hospital], q4: self.user.disease[user.selected_disease], q5: user.free_disease)
+                    //ResultHolderにテキストデータを格納
                 }
-            
+              }
+        
             
             }
-        
+            
 
 
     public func GetImageStack(images: [UIImage], shorterSide: CGFloat) -> some View {
@@ -87,6 +82,78 @@ struct SendData: View {
         let shorterSide = (screenSize.width < screenSize.height) ? screenSize.width : screenSize.height
         return shorterSide
     }
+    
+    
+    public func stringDate()->String{
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        let stringDate = df.string(from: user.date)
+        return stringDate
+    }
+    
+    
+    /*
+    public func SetData()-> String{
+        //date形式をstringに変換
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        let stringDate = df.string(from: user.date)
+        
+        //それぞれの項目をdataに格納
+        let data = QuestionAnswerData()
+        data.pq1 = stringDate
+        data.pq2 = user.id
+        data.pq3 = self.user.hospitals[user.selected_hospital]
+        data.pq4 = self.user.disease[user.selected_disease]
+        data.pq5 = user.free_disease
+        
+        //jsonに変換
+        let jsonEncoder = JSONEncoder()
+        let jsonData = (try? jsonEncoder.encode(data)) ?? Data()
+        let json = String(data: jsonData, encoding: String.Encoding.utf8)!
+        return json
+    }
+    */
+    
+    class QuestionAnswerData: Codable{
+        var pq1 = ""
+        var pq2 = ""
+        var pq3 = ""
+        var pq4 = ""
+        var pq5 = ""
+    }
+
+    
+    public func SendDataset(){
+        var errorPointer: NSError?
+        let textBlobURL = URL(string: ConstHolder.TEXTCONTAINERURI)
+        let textBlobURI = AZSStorageUri(primaryUri: textBlobURL!)
+        let textBlobContainer = AZSCloudBlobContainer(storageUri: textBlobURI, error: &errorPointer)
+        let textBlob = textBlobContainer.blockBlobReference(fromName: ConstHolder.QUESTIONFILENAME)
+        textBlob.upload(fromText: ResultHolder.GetInstance().GetAnswerJson(), completionHandler: { error in
+            if (error != nil) {
+                print(error!)
+            } else{
+                print("successfully uploaded text")
+            }
+        })
+
+        let imageBlobURL = URL(string: ConstHolder.IMAGECONTAINERURI)
+        let imageBlobURI = AZSStorageUri(primaryUri: imageBlobURL!)
+        let imageBlobContainer = AZSCloudBlobContainer(storageUri: imageBlobURI, error: &errorPointer)
+        let images = ResultHolder.GetInstance().GetUIImages()
+        for i in 0..<images.count{
+            let blob2 = imageBlobContainer.blockBlobReference(fromName: String(i) + ".png")
+            blob2.upload(from: images[i].pngData() ?? Data(), completionHandler: { error in
+                    if (error != nil) {
+                        print(error!)
+                    } else{
+                        print("successfully uploaded image")
+                    }
+            })
+        }
+    }
+    
     
     /*
     func getIsLandscape() -> Bool{
