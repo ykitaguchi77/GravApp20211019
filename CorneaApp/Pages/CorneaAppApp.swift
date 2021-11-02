@@ -8,13 +8,12 @@
 import SwiftUI
 
 @main
-
 struct CorneaAppApp: App {
     let persistenceController = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(User())
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

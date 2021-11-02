@@ -23,10 +23,17 @@ class User : ObservableObject {
 
 
 struct ContentView: View {
-    @EnvironmentObject var user: User
+    @ObservedObject var user = User()
+    //CoreDataの取り扱い
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<Item>
     @State private var goTakePhoto: Bool = false  //撮影ボタン
     @State private var isPatientInfo: Bool = false  //患者情報入力ボタン
     @State private var goSendData: Bool = false  //送信ボタン
+    @State private var savedData: Bool = false  //送信ボタン
     
     var body: some View {
         VStack(spacing:0){
@@ -66,7 +73,8 @@ struct ContentView: View {
                 .background(Color.black)
                 .padding()
             .sheet(isPresented: self.$isPatientInfo) {
-                Informations().environmentObject(self.user) //こう書いておかないとmissing as ancestorエラーが時々でる
+                Informations(user: user)
+                //こう書いておかないとmissing as ancestorエラーが時々でる
             }
                         
             Button(action: { self.goSendData = true /*またはself.show.toggle() */ }) {
@@ -81,10 +89,24 @@ struct ContentView: View {
                 .background(Color.black)
                 .padding()
             .sheet(isPresented: self.$goSendData) {
-                SendData()
+                SendData(user: user)
+            }
+            
+            Button(action: { self.savedData = true /*またはself.show.toggle() */ }) {
+                HStack{
+                    Image(systemName: "folder")
+                    Text("リスト")
+                }
+                    .foregroundColor(Color.white)
+                    .font(Font.largeTitle)
+            }
+                .frame(minWidth:0, maxWidth:200, minHeight: 75)
+                .background(Color.black)
+                .padding()
+            .sheet(isPresented: self.$savedData) {
+                SavedData(user: user)
             }
             
         }
     }
 }
-

@@ -9,8 +9,9 @@ import SwiftUI
 
 //変数を定義
 struct Informations: View {
-    @EnvironmentObject var user: User
-    @State private var backToMain = false  //保存してメインに戻るボタン
+    @ObservedObject var user: User
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.managedObjectContext) private var viewContext
     @State var isSaved = false
 
     var body: some View {
@@ -55,7 +56,7 @@ struct Informations: View {
             
             Spacer()
             Button(action: {
-                    self.backToMain = true /*またはself.show.toggle() */
+                    self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("保存")
                     .foregroundColor(Color.white)
@@ -64,11 +65,10 @@ struct Informations: View {
                 .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
                 .background(Color.black)
                 .padding()
-            .sheet(isPresented: self.$backToMain) {
-                ContentView()
-            }
     }
 }
+
+
 
 
 /*

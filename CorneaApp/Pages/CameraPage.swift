@@ -15,8 +15,6 @@ struct CameraPage: View, CameraActions {
     @ObservedObject var events = UserEvents()
     //@Binding var rootActive: Bool
     
-    @Environment(\.presentationMode) var presentationMode
-
     @State var showCamera = true
     @State var showGuide = true
     @State var isSubCamera = false
@@ -26,6 +24,7 @@ struct CameraPage: View, CameraActions {
     @State private var goTakePhoto: Bool = false  //撮影ボタン
     @State var goSendPhoto = false
     @State private var backToMain = false  //保存してメインに戻るボタン
+
 
     
     var body: some View {
@@ -123,7 +122,8 @@ struct CameraPage: View, CameraActions {
                     
                 
                     Button(action: {
-                        self.backToMain = true /*またはself.show.toggle() */
+                        //すべてのsheetを削除して最初の画面に戻る
+                        UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
                     }) {
                         
                         Text("保存")

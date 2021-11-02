@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BC84087473AA2343E0CF3BDE /* Pods_CorneaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B185A6B364E84076ABF45D /* Pods_CorneaApp.framework */; };
+		BF56AED9271344C700CD9166 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF56AED8271344C700CD9166 /* GoogleService-Info.plist */; };
 		BF94CD60262BF98E00AAC1A3 /* CorneaAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */; };
 		BF94CD62262BF98E00AAC1A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD61262BF98E00AAC1A3 /* ContentView.swift */; };
 		BF94CD64262BF98F00AAC1A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF94CD63262BF98F00AAC1A3 /* Assets.xcassets */; };
 		BF94CD67262BF98F00AAC1A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF94CD66262BF98F00AAC1A3 /* Preview Assets.xcassets */; };
 		BF94CD69262BF98F00AAC1A3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD68262BF98F00AAC1A3 /* Persistence.swift */; };
-		BF94CD6C262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD6A262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld */; };
 		BF94CD77262BF98F00AAC1A3 /* CorneaAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD76262BF98F00AAC1A3 /* CorneaAppTests.swift */; };
 		BF94CD82262BF98F00AAC1A3 /* CorneaAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CD81262BF98F00AAC1A3 /* CorneaAppUITests.swift */; };
 		BF94CDBF262C1CB400AAC1A3 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CDBE262C1CB400AAC1A3 /* InformationView.swift */; };
@@ -26,11 +26,13 @@
 		BF94CE86262D4D8000AAC1A3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE85262D4D8000AAC1A3 /* StringExtension.swift */; };
 		BF94CE8B262D4D9F00AAC1A3 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE8A262D4D9F00AAC1A3 /* UIImageExtension.swift */; };
 		BF94CE9F262FE7E000AAC1A3 /* DateToStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF94CE9E262FE7E000AAC1A3 /* DateToStringExtension.swift */; };
+		BFA5E14027313593004CA0D8 /* CorneaAppApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFA5E13E27313593004CA0D8 /* CorneaAppApp.xcdatamodeld */; };
 		BFAC704B2637DF4300A606CE /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC704A2637DF4300A606CE /* CameraView.swift */; };
 		BFAC70502637DF7300A606CE /* CameraActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC704F2637DF7300A606CE /* CameraActions.swift */; };
 		BFAC70552637DF9800A606CE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70542637DF9800A606CE /* CameraViewController.swift */; };
 		BFAC705A2637E19E00A606CE /* CameraControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70592637E19E00A606CE /* CameraControllerDelegate.swift */; };
 		BFAC70622637E20400A606CE /* UserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70612637E20400A606CE /* UserEvents.swift */; };
+		BFD88350271E68940062815E /* SavedDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD8834F271E68940062815E /* SavedDataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +56,13 @@
 		5888128644EA89B4989C8888 /* Pods-CorneaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorneaApp.debug.xcconfig"; path = "Target Support Files/Pods-CorneaApp/Pods-CorneaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		77B185A6B364E84076ABF45D /* Pods_CorneaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CorneaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84207BDC8E8A5B4A19A192F8 /* Pods-CorneaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CorneaApp.release.xcconfig"; path = "Target Support Files/Pods-CorneaApp/Pods-CorneaApp.release.xcconfig"; sourceTree = "<group>"; };
+		BF56AED8271344C700CD9166 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF94CD5C262BF98E00AAC1A3 /* CorneaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CorneaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneaAppApp.swift; sourceTree = "<group>"; };
 		BF94CD61262BF98E00AAC1A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF94CD63262BF98F00AAC1A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF94CD66262BF98F00AAC1A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF94CD68262BF98F00AAC1A3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		BF94CD6B262BF98F00AAC1A3 /* CorneaApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CorneaApp.xcdatamodel; sourceTree = "<group>"; };
 		BF94CD6D262BF98F00AAC1A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF94CD72262BF98F00AAC1A3 /* CorneaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CorneaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF94CD76262BF98F00AAC1A3 /* CorneaAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneaAppTests.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 		BF94CE85262D4D8000AAC1A3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		BF94CE8A262D4D9F00AAC1A3 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BF94CE9E262FE7E000AAC1A3 /* DateToStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToStringExtension.swift; sourceTree = "<group>"; };
+		BFA5E13F27313593004CA0D8 /* CorneaAppApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CorneaAppApp.xcdatamodel; sourceTree = "<group>"; };
 		BFAC704A2637DF4300A606CE /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		BFAC704F2637DF7300A606CE /* CameraActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraActions.swift; sourceTree = "<group>"; };
 		BFAC70542637DF9800A606CE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		BFAC70612637E20400A606CE /* UserEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvents.swift; sourceTree = "<group>"; };
 		BFB2EC502651FE940002815D /* CorneaApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CorneaApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFB2EC532651FEDB0002815D /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		BFD8834F271E68940062815E /* SavedDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +161,6 @@
 		BF94CD5E262BF98E00AAC1A3 /* CorneaApp */ = {
 			isa = PBXGroup;
 			children = (
-				BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */,
 				BFAC704A2637DF4300A606CE /* CameraView.swift */,
 				BFAC704F2637DF7300A606CE /* CameraActions.swift */,
 				BFAC70542637DF9800A606CE /* CameraViewController.swift */,
@@ -168,9 +171,8 @@
 				BF94CE77262D4D2A00AAC1A3 /* Extensions */,
 				BF94CDA7262C187A00AAC1A3 /* Pages */,
 				BF94CD63262BF98F00AAC1A3 /* Assets.xcassets */,
-				BF94CD68262BF98F00AAC1A3 /* Persistence.swift */,
 				BF94CD6D262BF98F00AAC1A3 /* Info.plist */,
-				BF94CD6A262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld */,
+				BF56AED8271344C700CD9166 /* GoogleService-Info.plist */,
 				BF94CD65262BF98F00AAC1A3 /* Preview Content */,
 			);
 			path = CorneaApp;
@@ -205,10 +207,14 @@
 		BF94CDA7262C187A00AAC1A3 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */,
 				BF94CD61262BF98E00AAC1A3 /* ContentView.swift */,
 				BF94CE02262CFD5C00AAC1A3 /* CameraPage.swift */,
 				BF94CDBE262C1CB400AAC1A3 /* InformationView.swift */,
+				BFD8834F271E68940062815E /* SavedDataView.swift */,
 				BF94CDC3262C1CC000AAC1A3 /* SendDataView.swift */,
+				BF94CD68262BF98F00AAC1A3 /* Persistence.swift */,
+				BFA5E13E27313593004CA0D8 /* CorneaAppApp.xcdatamodeld */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 			files = (
 				BF94CD67262BF98F00AAC1A3 /* Preview Assets.xcassets in Resources */,
 				BF94CD64262BF98F00AAC1A3 /* Assets.xcassets in Resources */,
+				BF56AED9271344C700CD9166 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +412,7 @@
 				BF94CE03262CFD5C00AAC1A3 /* CameraPage.swift in Sources */,
 				BFAC705A2637E19E00A606CE /* CameraControllerDelegate.swift in Sources */,
 				BF94CE6E262D4B8800AAC1A3 /* ConstHolder.swift in Sources */,
+				BFD88350271E68940062815E /* SavedDataView.swift in Sources */,
 				BF94CD60262BF98E00AAC1A3 /* CorneaAppApp.swift in Sources */,
 				BFAC70622637E20400A606CE /* UserEvents.swift in Sources */,
 				BF94CE79262D4D3F00AAC1A3 /* CGImageExtension.swift in Sources */,
@@ -417,7 +425,7 @@
 				BF94CE73262D4CE600AAC1A3 /* ResultHolder.swift in Sources */,
 				BFAC70552637DF9800A606CE /* CameraViewController.swift in Sources */,
 				BFAC70502637DF7300A606CE /* CameraActions.swift in Sources */,
-				BF94CD6C262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld in Sources */,
+				BFA5E14027313593004CA0D8 /* CorneaAppApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,7 +596,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaApp.20210924;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yk-gankeisei.CorneaApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -614,7 +622,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ykita.CorneaApp.20210924;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yk-gankeisei.CorneaApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -748,13 +756,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BF94CD6A262BF98F00AAC1A3 /* CorneaApp.xcdatamodeld */ = {
+		BFA5E13E27313593004CA0D8 /* CorneaAppApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				BF94CD6B262BF98F00AAC1A3 /* CorneaApp.xcdatamodel */,
+				BFA5E13F27313593004CA0D8 /* CorneaAppApp.xcdatamodel */,
 			);
-			currentVersion = BF94CD6B262BF98F00AAC1A3 /* CorneaApp.xcdatamodel */;
-			path = CorneaApp.xcdatamodeld;
+			currentVersion = BFA5E13F27313593004CA0D8 /* CorneaAppApp.xcdatamodel */;
+			path = CorneaAppApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
