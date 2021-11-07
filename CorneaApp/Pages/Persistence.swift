@@ -9,17 +9,20 @@ import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
-
+    //private var persistentContainer: NSPersistentContainer!
+    
+    
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            //let newId = Item(context: viewContext)
-            //let newHospitals = Item(context: viewContext)
-            //let newDisease = Item(context: viewContext)
-            //let newFree_disease = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newDate = Item(context: viewContext)
+            let newId = Item(context: viewContext)
+            let newHospitals = Item(context: viewContext)
+            let newDisease = Item(context: viewContext)
+            let newFreeDisease = Item(context: viewContext)
+            newDate.newdate = Date()
+            newId.newid = "aaa"
         }
         do {
             try viewContext.save()

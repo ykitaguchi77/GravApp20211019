@@ -7,6 +7,7 @@
 
 
 import SwiftUI
+import CoreData
 
 //変数を定義
 class User : ObservableObject {
@@ -18,7 +19,10 @@ class User : ObservableObject {
 
     @Published var hospitals: [String] = ["", "筑波大", "大阪大", "東京歯科大市川", "鳥取大", "宮田眼科", "順天堂大", "ツカザキ病院", "広島大", "新潟大", "富山大", "福島県立医大", "東京医大"]
     @Published var disease: [String] = ["", "角膜ジストロフィー", "角膜細菌感染", "角膜真菌感染", "周辺角膜潰瘍", "翼状片"]
-}
+    
+    @Published var isNewData = false
+    }
+
 
 
 
@@ -27,7 +31,7 @@ struct ContentView: View {
     //CoreDataの取り扱い
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.newdate, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
     @State private var goTakePhoto: Bool = false  //撮影ボタン

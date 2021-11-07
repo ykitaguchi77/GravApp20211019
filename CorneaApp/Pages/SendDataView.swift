@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SendData: View {
     @ObservedObject var user: User
+    @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
         
@@ -36,7 +38,9 @@ struct SendData: View {
                 Spacer()
                 Button(action: {
                     //SetData()
+                    SetCoreData(context: viewContext)
                     SendDataset()
+                    
                 }) {
                     Text("送信")
                         .foregroundColor(Color.white)
@@ -55,6 +59,20 @@ struct SendData: View {
             }
             
 
+    
+    func SetCoreData(context: NSManagedObjectContext){
+        let newItem = Item(context: viewContext)
+        newItem.newdate = self.user.date
+        newItem.newid = self.user.id
+        newItem.newhospitals = self.user.hospitals[user.selected_hospital]
+        newItem.newdisease = self.user.disease[user.selected_disease]
+        newItem.newfreedisease = self.user.free_disease
+
+        try! context.save()
+        self.user.isNewData = true
+        }
+    
+    
 
     public func GetImageStack(images: [UIImage], shorterSide: CGFloat) -> some View {
             let padding: CGFloat = 10.0
