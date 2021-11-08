@@ -21,6 +21,7 @@ class User : ObservableObject {
     @Published var disease: [String] = ["", "角膜ジストロフィー", "角膜細菌感染", "角膜真菌感染", "周辺角膜潰瘍", "翼状片"]
     
     @Published var isNewData = false
+    @Published var isSendData = false
     }
 
 
@@ -80,20 +81,38 @@ struct ContentView: View {
                 Informations(user: user)
                 //こう書いておかないとmissing as ancestorエラーが時々でる
             }
-                        
-            Button(action: { self.goSendData = true /*またはself.show.toggle() */ }) {
-                HStack{
-                    Image(systemName: "square.and.arrow.up")
-                    Text("送信")
+              
+            //送信するとボタンの色が変わる演出
+            if self.user.isSendData {
+                Button(action: { self.goSendData = true /*またはself.show.toggle() */ }) {
+                    HStack{
+                        Image(systemName: "square.and.arrow.up")
+                        Text("送信済み")
+                    }
+                        .foregroundColor(Color.white)
+                        .font(Font.largeTitle)
                 }
-                    .foregroundColor(Color.white)
-                    .font(Font.largeTitle)
-            }
-                .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
-                .background(Color.black)
-                .padding()
-            .sheet(isPresented: self.$goSendData) {
-                SendData(user: user)
+                    .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
+                    .background(Color.blue)
+                    .padding()
+                .sheet(isPresented: self.$goSendData) {
+                    SendData(user: user)
+                }
+            } else {
+                Button(action: { self.goSendData = true /*またはself.show.toggle() */ }) {
+                    HStack{
+                        Image(systemName: "square.and.arrow.up")
+                        Text("送信")
+                    }
+                        .foregroundColor(Color.white)
+                        .font(Font.largeTitle)
+                }
+                    .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
+                    .background(Color.black)
+                    .padding()
+                .sheet(isPresented: self.$goSendData) {
+                    SendData(user: user)
+                }
             }
             
             Button(action: { self.savedData = true /*またはself.show.toggle() */ }) {

@@ -10,6 +10,7 @@ import CoreData
 
 struct SendData: View {
     @ObservedObject var user: User
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) var viewContext
     
     var body: some View {
@@ -37,9 +38,10 @@ struct SendData: View {
                             
                 Spacer()
                 Button(action: {
-                    //SetData()
                     SetCoreData(context: viewContext)
-                    SendDataset()
+                    //SendDataset()
+                    self.presentationMode.wrappedValue.dismiss()
+                    self.user.isSendData = true
                     
                 }) {
                     Text("送信")

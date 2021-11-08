@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+
 //変数を定義
 struct SavedData: View {
     @ObservedObject var user: User
@@ -15,49 +16,37 @@ struct SavedData: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.newdate, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
 
     var body: some View {
         NavigationView {    // ナビゲーションバーを表示する為に必要
-            List {
-                ForEach(items) { item in
-                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                /// ナビゲーションバーの左にEditボタンを配置
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
+            VStack(spacing:0){
+                Text("Saved Data")
+                    .font(.largeTitle)
+                    .padding(.bottom)
                 
-                /// ナビゲーションバーの右に+ボタン配置
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                //saved dataをリスト形式で表示
+                List {
+                    ForEach(items) { item in
+                        Text("Date: \(item.newdate!, formatter: itemFormatter), ID: \(item.newid!), Hospitals: \(item.newhospitals!), Disease\(item.newdisease!)")
                     }
+                    .onDelete(perform: deleteItems)
+                }
+                .toolbar {
+                    /// ナビゲーションバーの左にEditボタンを配置
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                    }
+
+
                 }
             }
         }
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
