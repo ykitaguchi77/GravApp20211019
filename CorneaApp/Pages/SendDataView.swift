@@ -69,6 +69,15 @@ struct SendData: View {
         newItem.newhospitals = self.user.hospitals[user.selected_hospital]
         newItem.newdisease = self.user.disease[user.selected_disease]
         newItem.newfreedisease = self.user.free_disease
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.dateStyle = .medium
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        newItem.newhashid = "\(dateFormatter.string(from:self.user.date))-\(self.user.id)"
+        
+
 
         try! context.save()
         self.user.isNewData = true

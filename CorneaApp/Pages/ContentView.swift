@@ -13,6 +13,7 @@ import CoreData
 class User : ObservableObject {
     @Published var date: Date = Date()
     @Published var id: String = ""
+    @Published var hashedId: String = ""
     @Published var selected_hospital: Int = 0
     @Published var selected_disease: Int = 0
     @Published var free_disease: String = ""

@@ -30,7 +30,7 @@ struct SavedData: View {
                 //saved dataをリスト形式で表示
                 List {
                     ForEach(items) { item in
-                        Text("Date: \(item.newdate!, formatter: itemFormatter), ID: \(item.newid!), Hospitals: \(item.newhospitals!), Disease\(item.newdisease!)")
+                        Text("Date: \(item.newdate!, formatter: itemFormatter), ID: \(item.newid!), Hospitals: \(item.newhospitals!), Disease\(item.newdisease!), HashID: \(item.newhashid!)")
                     }
                     .onDelete(perform: deleteItems)
                 }
