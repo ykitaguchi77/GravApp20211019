@@ -35,7 +35,6 @@
 		BFAC70552637DF9800A606CE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70542637DF9800A606CE /* CameraViewController.swift */; };
 		BFAC705A2637E19E00A606CE /* CameraControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70592637E19E00A606CE /* CameraControllerDelegate.swift */; };
 		BFAC70622637E20400A606CE /* UserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAC70612637E20400A606CE /* UserEvents.swift */; };
-		BFD88350271E68940062815E /* SavedDataView_backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD8834F271E68940062815E /* SavedDataView_backup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +93,6 @@
 		BFAC70612637E20400A606CE /* UserEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvents.swift; sourceTree = "<group>"; };
 		BFB2EC502651FE940002815D /* CorneaApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CorneaApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		BFB2EC532651FEDB0002815D /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		BFD8834F271E68940062815E /* SavedDataView_backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDataView_backup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +217,6 @@
 				BF94CD61262BF98E00AAC1A3 /* ContentView.swift */,
 				BF94CE02262CFD5C00AAC1A3 /* CameraPage.swift */,
 				BF94CDBE262C1CB400AAC1A3 /* InformationView.swift */,
-				BFD8834F271E68940062815E /* SavedDataView_backup.swift */,
 				BFA5E1692737FF24004CA0D8 /* SavedDataView.swift */,
 				BF94CDC3262C1CC000AAC1A3 /* SendDataView.swift */,
 				BF94CD68262BF98F00AAC1A3 /* Persistence.swift */,
@@ -421,7 +418,6 @@
 				BF94CE03262CFD5C00AAC1A3 /* CameraPage.swift in Sources */,
 				BFAC705A2637E19E00A606CE /* CameraControllerDelegate.swift in Sources */,
 				BF94CE6E262D4B8800AAC1A3 /* ConstHolder.swift in Sources */,
-				BFD88350271E68940062815E /* SavedDataView_backup.swift in Sources */,
 				BF94CD60262BF98E00AAC1A3 /* CorneaAppApp.swift in Sources */,
 				BFAC70622637E20400A606CE /* UserEvents.swift in Sources */,
 				BF94CE79262D4D3F00AAC1A3 /* CGImageExtension.swift in Sources */,

@@ -4,10 +4,9 @@
 //
 //  Created by Yoshiyuki Kitaguchi on 2021/04/18.
 //
-
 import SwiftUI
 import CoreData
-
+import CryptoKit
 
 //変数を定義
 struct SavedData: View {
@@ -28,9 +27,11 @@ struct SavedData: View {
                     .padding(.bottom)
                 
                 //saved dataをリスト形式で表示
+                //HashID: SHA-256を使用。"yyyymmdd-ID"をハッシュ化。
+                //CoreDataのAttributeを追加するときには、スマホ内の保存データを全て削除すること
                 List {
-                    ForEach(items) { item in
-                        Text("Date: \(item.newdate!, formatter: itemFormatter), ID: \(item.newid!), Hospitals: \(item.newhospitals!), Disease\(item.newdisease!), HashID: \(item.newhashid!)")
+                    ForEach(items) {item in
+                        Text("Date: \(item.newdate!, formatter: itemFormatter), ID: \(item.newid!), Hospitals: \(item.newhospitals!), Disease: \(item.newdisease!)")
                     }
                     .onDelete(perform: deleteItems)
                 }
@@ -45,7 +46,7 @@ struct SavedData: View {
             }
         }
     }
-
+    
 
 
     private func deleteItems(offsets: IndexSet) {

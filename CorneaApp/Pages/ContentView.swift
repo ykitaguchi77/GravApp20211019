@@ -4,7 +4,8 @@
 //
 //  Created by Yoshiyuki Kitaguchi on 2021/04/18.
 //
-
+//写真Coredata参考サイト：https://tomato-develop.com/swiftui-camera-photo-library-core-data/
+//
 
 import SwiftUI
 import CoreData
@@ -13,16 +14,14 @@ import CoreData
 class User : ObservableObject {
     @Published var date: Date = Date()
     @Published var id: String = ""
-    @Published var hashedId: String = ""
+    @Published var hashid: String = ""
     @Published var selected_hospital: Int = 0
     @Published var selected_disease: Int = 0
     @Published var free_disease: String = ""
-
     @Published var hospitals: [String] = ["", "筑波大", "大阪大", "東京歯科大市川", "鳥取大", "宮田眼科", "順天堂大", "ツカザキ病院", "広島大", "新潟大", "富山大", "福島県立医大", "東京医大"]
-    @Published var disease: [String] = ["", "角膜ジストロフィー", "角膜細菌感染", "角膜真菌感染", "周辺角膜潰瘍", "翼状片"]
-    
-    @Published var isNewData = false
-    @Published var isSendData = false
+    @Published var disease: [String] = ["", "正常", "", "<<感染性>>", "アメーバ", "細菌", "真菌", "上皮型ヘルペス", "", "<<非感染性>>", "カタル性角膜浸潤", "実質型ヘルペス", "フリクテン", "モーレン潰瘍", "非感染その他", "", "<<腫瘍>>", "翼状片", "角結膜腫瘍", "", "<<沈着>>", "アミロイドーシス", "帯状角膜変性", "顆粒状角膜ジストロフィー", "格子状角膜ジストロフィー", "膠様滴状角膜ジストロフィー", "斑状角膜ジストロフィー", "瞼裂斑", "", "<<その他>>","瘢痕", "水疱性角膜症", "白内障", "緑内障発作", "分類不能（自由記載）"]
+    @Published var isNewData: Bool = false
+    @Published var isSendData: Bool = false
     }
 
 
@@ -40,6 +39,7 @@ struct ContentView: View {
     @State private var isPatientInfo: Bool = false  //患者情報入力ボタン
     @State private var goSendData: Bool = false  //送信ボタン
     @State private var savedData: Bool = false  //送信ボタン
+    @State private var newPatient: Bool = false  //送信ボタン
     
     var body: some View {
         VStack(spacing:0){
@@ -85,7 +85,7 @@ struct ContentView: View {
               
             //送信するとボタンの色が変わる演出
             if self.user.isSendData {
-                Button(action: { self.goSendData = true /*またはself.show.toggle() */ }) {
+                Button(action: {self.goSendData = true /*またはself.show.toggle() */}) {
                     HStack{
                         Image(systemName: "square.and.arrow.up")
                         Text("送信済み")
@@ -116,6 +116,7 @@ struct ContentView: View {
                 }
             }
             
+            HStack{
             Button(action: { self.savedData = true /*またはself.show.toggle() */ }) {
                 HStack{
                     Image(systemName: "folder")
@@ -131,6 +132,31 @@ struct ContentView: View {
                 SavedData(user: user)
             }
             
+            Button(action: { self.newPatient = true /*またはself.show.toggle() */ }) {
+                HStack{
+                    Image(systemName: "stop.circle")
+                    Text("次患者")
+                }
+                    .foregroundColor(Color.white)
+                    .font(Font.largeTitle)
+            }
+            .alert(isPresented:$newPatient){
+                Alert(title: Text("データをクリアしますか？"), primaryButton:.default(Text("はい"),action:{
+                    //データの初期化
+                    self.user.date = Date()
+                    self.user.id = ""
+                    self.user.selected_hospital = 0
+                    self.user.selected_disease = 0
+                    self.user.free_disease = ""
+                    self.user.isSendData = false
+                    
+                }),
+                      secondaryButton:.destructive(Text("いいえ"), action:{}))
+                }
+                .frame(minWidth:0, maxWidth:200, minHeight: 75)
+                .background(Color.black)
+                .padding()
+            }
         }
     }
 }

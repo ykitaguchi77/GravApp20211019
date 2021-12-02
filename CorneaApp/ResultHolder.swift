@@ -5,7 +5,6 @@
 //  Created by Yoshiyuki Kitaguchi on 2021/04/19.
 //  Created by Kuniaki Ohara on 2021/01/30.
 //
-
 import SwiftUI
 
 class ResultHolder{
@@ -54,6 +53,8 @@ class ResultHolder{
     public func SetImage(index: Int, cgImage: CGImage){
         Images[index] = cgImage
     }
+    
+    
     public func GetImageJsons() -> [String]{
         var imageJsons:[String] = []
         let uiimages = GetUIImages()
@@ -73,14 +74,15 @@ class ResultHolder{
         return imageJsons
     }
     
-    private (set) public var Answers: [String:String] = ["q1":"", "q2":"", "q3":"", "q4":"", "q5":""]
+    private (set) public var Answers: [String:String] = ["q1":"", "q2":"", "q3":"", "q4":"", "q5": "", "q6": "", "":""]
 
-    public func SetAnswer(q1:String, q2:String, q3:String, q4:String, q5:String){
+    public func SetAnswer(q1:String, q2:String, q3:String, q4:String, q5:String, q6:String){
         Answers["q1"] = q1 //date
-        Answers["q2"] = q2 //ID
-        Answers["q3"] = q2 //hospital
-        Answers["q4"] = q2 //disease
-        Answers["q5"] = q2 //free
+        Answers["q2"] = q2 //hashID
+        Answers["q3"] = q3 //ID
+        Answers["q4"] = q4 //hospital
+        Answers["q5"] = q5 //disease
+        Answers["q6"] = q6 //free
     }
 
     public func GetAnswerJson() -> String{
@@ -90,7 +92,9 @@ class ResultHolder{
         data.pq3 = Answers["q3"] ?? ""
         data.pq4 = Answers["q4"] ?? ""
         data.pq5 = Answers["q5"] ?? ""
+        data.pq6 = Answers["q6"] ?? ""
         let jsonEncoder = JSONEncoder()
+        jsonEncoder.outputFormatting = .sortedKeys
         let jsonData = (try? jsonEncoder.encode(data)) ?? Data()
         let json = String(data: jsonData, encoding: String.Encoding.utf8)!
         return json
@@ -107,4 +111,5 @@ class QuestionAnswerData: Codable{
     var pq3 = ""
     var pq4 = ""
     var pq5 = ""
+    var pq6 = ""
 }
