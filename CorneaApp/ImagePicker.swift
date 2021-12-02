@@ -48,6 +48,15 @@ struct Imagepicker : UIViewControllerRepresentable {
             let data = image.pngData()
             self.parent.image = data!
             self.parent.show.toggle()
+            
+            UIImageWriteToSavedPhotosAlbum(image, nil,nil,nil) //カメラロールに保存
+            
+            let cgImage = image.cgImage //CGImageに変換
+            let cropped = cgImage!.cropToSquare()
+            //撮影した画像をresultHolderに格納する
+            let imageOrientation = getImageOrientation()
+            let rawImage = UIImage(cgImage: cropped).rotatedBy(orientation: imageOrientation)
+            setImage(cgImage: rawImage.cgImage!)
         }
     }
 }
