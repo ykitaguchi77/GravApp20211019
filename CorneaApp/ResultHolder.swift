@@ -74,7 +74,7 @@ class ResultHolder{
         return imageJsons
     }
     
-    private (set) public var Answers: [String:String] = ["q1":"", "q2":"", "q3":"", "q4":"", "q5": "", "q6": "", "":""]
+    private (set) public var Answers: [String:String] = ["q1":"", "q2":"", "q3":"", "q4":"", "q5": "", "q6": ""]
 
     public func SetAnswer(q1:String, q2:String, q3:String, q4:String, q5:String, q6:String){
         Answers["q1"] = q1 //date

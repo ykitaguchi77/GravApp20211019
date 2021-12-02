@@ -90,7 +90,7 @@ struct SendData: View {
         let hashid = SHA256.hash(data: dateid)
         
         user.hashid = hashid.compactMap { String(format: "%02x", $0) }.joined()
-        //print(self.user.hashid)
+        print(self.user.hashid)
         newItem.newhashid = self.user.hashid
         
         try! context.save()
