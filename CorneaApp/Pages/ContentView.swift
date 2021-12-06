@@ -28,8 +28,6 @@ class User : ObservableObject {
     }
 
 
-
-
 struct ContentView: View {
     @ObservedObject var user = User()
     //CoreDataの取り扱い
@@ -72,7 +70,10 @@ struct ContentView: View {
                 //こう書いておかないとmissing as ancestorエラーが時々でる
             }
             
-            Button(action: { self.goTakePhoto = true /*またはself.show.toggle() */ }) {
+            Button(action: {
+                self.goTakePhoto = true /*またはself.show.toggle() */
+                self.user.isSendData = false //撮影済みを解除
+            }) {
                 HStack{
                     Image(systemName: "camera")
                     Text("撮影")
@@ -84,7 +85,7 @@ struct ContentView: View {
                 .background(Color.black)
                 .padding()
             .sheet(isPresented: self.$goTakePhoto) {
-                 CameraPage(user: user)
+                CameraPage(user: user)
             }
             
 

@@ -20,14 +20,12 @@ struct CameraPage: View {
     
 
     
-
-    
     var body: some View {
             NavigationView{
                 VStack(spacing:0){
                         ZStack{
                             NavigationLink(
-                                destination: Imagepicker(user: user, show: $isImagePicker, image: $imageData,  sourceType: source),
+                                destination: Imagepicker(show: $isImagePicker, image: $imageData,  sourceType: source),
                                 isActive:$isImagePicker,
                                 label: {
                                     Text("TakePhoto")

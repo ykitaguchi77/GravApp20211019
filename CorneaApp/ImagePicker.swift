@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct Imagepicker : UIViewControllerRepresentable {
-    @ObservedObject var user: User
     @Binding var show:Bool
     @Binding var image:Data
+
     
     var sourceType:UIImagePickerController.SourceType
  
@@ -58,6 +58,7 @@ struct Imagepicker : UIViewControllerRepresentable {
             let imageOrientation = getImageOrientation()
             let rawImage = UIImage(cgImage: cropped).rotatedBy(orientation: imageOrientation)
             setImage(progress: 0, cgImage: rawImage.cgImage!)
+
         }
     }
 }

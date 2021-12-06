@@ -36,31 +36,85 @@ struct SendData: View {
                         Text("自由記載: \(self.user.free_disease)")
                     }
                 }
-                            
-                Spacer()
-                Button(action: {
-                    if (self.user.id.isEmpty || self.user.side[user.selected_side].isEmpty || self.user.hospitals[user.selected_hospital].isEmpty || self.user.disease[user.selected_disease].isEmpty) {
-                        showingAlert = true //空欄があるとエラー
-                    }else{
-                        showingAlert = false
-                        SetCoreData(context: viewContext)
-                        SaveToResultHolder()
-                        //SendDataset()
-                        SaveToDoc()
-                        self.user.isSendData = true
-                        self.user.imageNum += 1 //画像番号を増やす
-                        self.presentationMode.wrappedValue.dismiss()
 
+                Spacer()
+
+            
+            //送信するとボタンの色が変わる演出
+            if self.user.isSendData {
+                Button(action: {}) {
+                    HStack{
+                        Image(systemName: "square.and.arrow.up")
+                        Text("送信済み")
                     }
-                    }) {
+                        .foregroundColor(Color.white)
+                        .font(Font.largeTitle)
+                }
+                    .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
+                    .background(Color.blue)
+                    .padding()
+            } else if (self.user.id.isEmpty || self.user.side[user.selected_side].isEmpty || self.user.hospitals[user.selected_hospital].isEmpty || self.user.disease[user.selected_disease].isEmpty){
+                Button(action: {
+                    showingAlert = true //空欄があるとエラー
+                }) {
+                    HStack{
+                        Image(systemName: "square.and.arrow.up")
                         Text("送信")
-                            .foregroundColor(Color.white)
-                            .font(Font.largeTitle)
                     }
-                    .alert(isPresented: $showingAlert){Alert(title: Text("項目に空欄があります"))}
+                        .foregroundColor(Color.white)
+                        .font(Font.largeTitle)
+                }
                     .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
                     .background(Color.black)
                     .padding()
+            } else{
+                Button(action: {
+                showingAlert = false
+                SetCoreData(context: viewContext)
+                SaveToResultHolder()
+                //SendDataset()
+                SaveToDoc()
+                self.user.isSendData = true
+                self.user.imageNum += 1 //画像番号を増やす
+                self.presentationMode.wrappedValue.dismiss()
+               })
+                {
+                    HStack{
+                        Image(systemName: "square.and.arrow.up")
+                        Text("送信")
+                    }
+                        .foregroundColor(Color.white)
+                        .font(Font.largeTitle)
+                }
+                    .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
+                    .background(Color.black)
+                    .padding()
+            }
+            
+//
+//                Button(action: {
+//                    if (self.user.id.isEmpty || self.user.side[user.selected_side].isEmpty || self.user.hospitals[user.selected_hospital].isEmpty || self.user.disease[user.selected_disease].isEmpty) {
+//                        showingAlert = true //空欄があるとエラー
+//                    }else{
+//                        showingAlert = false
+//                        SetCoreData(context: viewContext)
+//                        SaveToResultHolder()
+//                        //SendDataset()
+//                        SaveToDoc()
+//                        self.user.isSendData = true
+//                        self.user.imageNum += 1 //画像番号を増やす
+//                        self.presentationMode.wrappedValue.dismiss()
+//
+//                    }
+//                    }) {
+//                        Text("送信")
+//                            .foregroundColor(Color.white)
+//                            .font(Font.largeTitle)
+//                    }
+//                    .alert(isPresented: $showingAlert){Alert(title: Text("項目に空欄があります"))}
+//                    .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
+//                    .background(Color.black)
+//                    .padding()
 
               }
         
