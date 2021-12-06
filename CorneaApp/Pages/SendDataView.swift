@@ -61,6 +61,7 @@ struct SendData: View {
                     .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
                     .background(Color.black)
                     .padding()
+
               }
         
             

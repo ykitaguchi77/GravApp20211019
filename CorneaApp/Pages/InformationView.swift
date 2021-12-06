@@ -39,6 +39,9 @@ struct Informations: View {
                                 Text(self.user.hospitals[$0])
                                      }
                             }
+                           .onChange(of: user.selected_hospital) { _ in
+                               self.user.isSendData = false
+                               }
                     
                         Picker(selection: $user.selected_side,
                                    label: Text("右or左")) {
