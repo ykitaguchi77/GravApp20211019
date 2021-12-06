@@ -31,7 +31,9 @@ struct Informations: View {
                     HStack{
                         Text(" I D ")
                         TextField("idを入力してください", text: $user.id)
-                    }
+                    }.onChange(of: user.id) { _ in
+                        self.user.isSendData = false
+                        }
                         
                         Picker(selection: $user.selected_hospital,
                                    label: Text("施設")) {
@@ -68,6 +70,9 @@ struct Informations: View {
                             TextField("", text: $user.free_disease)
                                 .keyboardType(.default)
                         }.layoutPriority(1)
+                        .onChange(of: user.free_disease) { _ in
+                        self.user.isSendData = false
+                    }
                 }.navigationTitle("患者情報入力")
                 .onAppear(){
                  }
