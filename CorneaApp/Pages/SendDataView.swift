@@ -39,7 +39,7 @@ struct SendData: View {
                             
                 Spacer()
                 Button(action: {
-                    if (self.user.id.isEmpty || self.user.hospitals[user.selected_hospital].isEmpty || self.user.disease[user.selected_disease].isEmpty) {
+                    if (self.user.id.isEmpty || self.user.side[user.selected_side].isEmpty || self.user.hospitals[user.selected_hospital].isEmpty || self.user.disease[user.selected_disease].isEmpty) {
                         showingAlert = true //空欄があるとエラー
                     }else{
                         showingAlert = false
@@ -47,8 +47,9 @@ struct SendData: View {
                         SaveToResultHolder()
                         //SendDataset()
                         SaveToDoc()
-                        self.presentationMode.wrappedValue.dismiss()
                         self.user.isSendData = true
+                        self.user.imageNum += 1 //画像番号を増やす
+                        self.presentationMode.wrappedValue.dismiss()
 
                     }
                     }) {
@@ -68,14 +69,30 @@ struct SendData: View {
     
     //ResultHolderにテキストデータを格納
     public func SaveToResultHolder(){
-        ResultHolder.GetInstance().SetAnswer(q1: stringDate(), q2: user.hashid, q3: user.id, q4: self.user.hospitals[user.selected_hospital], q5: self.user.disease[user.selected_disease], q6: user.free_disease)
+        //var imagenum: String = String(user.imageNum)
+        ResultHolder.GetInstance().SetAnswer(q1: self.stringDate(), q2: user.hashid, q3: user.id, q4: self.numToString(num: self.user.imageNum), q5: self.user.side[user.selected_side], q6: self.user.hospitals[user.selected_hospital], q7: self.user.disease[user.selected_disease], q8: user.free_disease)
     }
+    
+    public func stringDate()->String{
+        let df = DateFormatter()
+        df.dateFormat = "yyyyMMdd"
+        let stringDate = df.string(from: user.date)
+        return stringDate
+    }
+    
+    public func numToString(num:Int)->String{
+        let string: String = String(num)
+        return string
+    }
+
     
     
     public func SetCoreData(context: NSManagedObjectContext){
         let newItem = Item(context: viewContext)
         newItem.newdate = self.user.date
         newItem.newid = self.user.id
+        newItem.newimagenum = numToString(num: self.user.imageNum)
+        newItem.newside = self.user.side[user.selected_side]
         newItem.newhospitals = self.user.hospitals[user.selected_hospital]
         newItem.newdisease = self.user.disease[user.selected_disease]
         newItem.newfreedisease = self.user.free_disease
@@ -85,7 +102,8 @@ struct SendData: View {
         dateFormatter.dateStyle = .medium
         dateFormatter.dateFormat = "yyyyMMdd"
         
-        newItem.newdateid = "\(dateFormatter.string(from:self.user.date))-\(self.user.id)"
+        //newdateid: 20211204-11223344-3
+        newItem.newdateid = "\(dateFormatter.string(from:self.user.date))-\(self.user.id)-\(self.user.imageNum)"
         let dateid = Data(newItem.newdateid!.utf8)
         let hashid = SHA256.hash(data: dateid)
         
@@ -162,12 +180,6 @@ struct SendData: View {
         return true
     }
         
-        
-        
-        
-        
-        
-        
         return true
     }
 
@@ -199,13 +211,7 @@ struct SendData: View {
         return shorterSide
     }
     
-    
-    public func stringDate()->String{
-        let df = DateFormatter()
-        df.dateFormat = "yyyyMMdd"
-        let stringDate = df.string(from: user.date)
-        return stringDate
-    }
+
     
 //    class QuestionAnswerData: Codable{
 //        var pq1 = ""

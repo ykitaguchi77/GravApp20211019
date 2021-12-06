@@ -9,8 +9,10 @@
         <attribute name="newhashid" optional="YES" attributeType="String"/>
         <attribute name="newhospitals" optional="YES" attributeType="String"/>
         <attribute name="newid" optional="YES" attributeType="String"/>
+        <attribute name="newimagenum" optional="YES" attributeType="String"/>
+        <attribute name="newside" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-27" positionY="18" width="128" height="149"/>
+        <element name="Item" positionX="-27" positionY="18" width="128" height="179"/>
     </elements>
 </model>

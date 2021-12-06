@@ -9,57 +9,67 @@
 import SwiftUI
 
 struct CameraPage: View {
-
+    
+    @ObservedObject var user: User
     @State var imageData : Data = .init(capacity:0)
+    @State var rawImage : Data = .init(capacity:0)
     @State var source:UIImagePickerController.SourceType = .camera
 
     @State var isActionSheet = true
     @State var isImagePicker = true
+    
 
+    
+
+    
     var body: some View {
             NavigationView{
                 VStack(spacing:0){
                         ZStack{
                             NavigationLink(
-                                destination: Imagepicker(show: $isImagePicker, image: $imageData, sourceType: source),
+                                destination: Imagepicker(user: user, show: $isImagePicker, image: $imageData,  sourceType: source),
                                 isActive:$isImagePicker,
                                 label: {
-                                    Text("")
+                                    Text("TakePhoto")
                                 })
                             VStack{
                                 if imageData.count != 0{
-                                    Image(uiImage: UIImage(data: self.imageData)!)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(height: 250)
-                                        .cornerRadius(15)
-                                        .padding()
-                                }
-                                HStack(spacing:30){
-                                    Button(action: {
-                                            self.source = .photoLibrary
-                                            self.isImagePicker.toggle()
-                                    }, label: {
-                                        Text("Upload")
-                                    })
-                                    Button(action: {
-                                            self.source = .camera
-                                            self.isImagePicker.toggle()
-                                    }, label: {
-                                        Text("Take Photo")
-                                    })
-                                }
+                                    SendData(user:user)
+                                    
+//                                    Image(uiImage: UIImage(data: self.imageData)!)
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fill)
+//                                        .frame(height: 250)
+//                                        .cornerRadius(15)
+//                                        .padding()
+//                                }
+//                                HStack(spacing:30){
+//                                    Button(action: {
+//                                            self.source = .photoLibrary
+//                                            self.isImagePicker.toggle()
+//                                    }, label: {
+//                                        Text("Upload")
+//                                    })
+//                                    Button(action: {
+//                                            self.source = .camera
+//                                            self.isImagePicker.toggle()
+//                                    }, label: {
+//                                        Text("Take Photo")
+//                                    })
+//                                }
                             }
                         }
                 }
-                .navigationBarTitle("Home", displayMode: .inline)
+                .navigationBarTitle("", displayMode: .inline)
             }
         .ignoresSafeArea(.all, edges: .top)
         .background(Color.primary.opacity(0.06).ignoresSafeArea(.all, edges: .all))
     }
+    
+    
 }
 
-
+}
 
 
 //

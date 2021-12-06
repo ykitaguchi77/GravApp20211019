@@ -281,6 +281,8 @@ public class CameraViewController: UIViewController {
         }
     }
     
+    
+    
     override public func viewWillDisappear(_ animated: Bool) {
         sessionQueue.async {
             if self.setupResult == .success {
@@ -655,7 +657,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             let imageOrientation = getImageOrientation()
             let cgImage = UIImage(data: photoData)!.cgImage!.cropToSquare()
             let rawImage = UIImage(cgImage: cgImage).rotatedBy(orientation: imageOrientation)
-            setImage(cgImage: rawImage.cgImage!)
+            setImage(progress: 0, cgImage: rawImage.cgImage!)
             
             DispatchQueue.main.async {
                 self.delegate?.didFinishProcessingPhoto(image)
@@ -666,8 +668,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 
 
 //ResultHolderに格納
-public func setImage(cgImage: CGImage){
-    ResultHolder.GetInstance().SetImage(index: 0, cgImage: cgImage)
+public func setImage(progress: Int, cgImage: CGImage){
+    ResultHolder.GetInstance().SetImage(index: progress, cgImage: cgImage)
 }
 
 

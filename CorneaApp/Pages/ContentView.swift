@@ -15,11 +15,14 @@ class User : ObservableObject {
     @Published var date: Date = Date()
     @Published var id: String = ""
     @Published var hashid: String = ""
+    @Published var selected_side: Int = 0
     @Published var selected_hospital: Int = 0
     @Published var selected_disease: Int = 0
     @Published var free_disease: String = ""
+    @Published var side: [String] = ["", "右", "左"]
     @Published var hospitals: [String] = ["", "筑波大", "大阪大", "東京歯科大市川", "鳥取大", "宮田眼科", "順天堂大", "ツカザキ病院", "広島大", "新潟大", "富山大", "福島県立医大", "東京医大"]
     @Published var disease: [String] = ["", "正常", "", "<<感染性>>", "アメーバ", "細菌", "真菌", "上皮型ヘルペス", "", "<<非感染性>>", "カタル性角膜浸潤", "実質型ヘルペス", "フリクテン", "モーレン潰瘍", "非感染その他", "", "<<腫瘍>>", "翼状片", "角結膜腫瘍", "", "<<沈着>>", "アミロイドーシス", "帯状角膜変性", "顆粒状角膜ジストロフィー", "格子状角膜ジストロフィー", "膠様滴状角膜ジストロフィー", "斑状角膜ジストロフィー", "瞼裂斑", "", "<<その他>>","瘢痕", "水疱性角膜症", "白内障", "緑内障発作", "分類不能（自由記載）"]
+    @Published var imageNum: Int = 0 //写真の枚数（何枚目の撮影か）
     @Published var isNewData: Bool = false
     @Published var isSendData: Bool = false
     }
@@ -41,6 +44,7 @@ struct ContentView: View {
     @State private var savedData: Bool = false  //送信ボタン
     @State private var newPatient: Bool = false  //送信ボタン
     
+    
     var body: some View {
         VStack(spacing:0){
             Text("Cornea app")
@@ -51,21 +55,6 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200)
-            
-            Button(action: { self.goTakePhoto = true /*またはself.show.toggle() */ }) {
-                HStack{
-                    Image(systemName: "camera")
-                    Text("撮影")
-                }
-                    .foregroundColor(Color.white)
-                    .font(Font.largeTitle)
-            }
-                .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
-                .background(Color.black)
-                .padding()
-            .sheet(isPresented: self.$goTakePhoto) {
-                CameraPage()
-            }
             
             Button(action: { self.isPatientInfo = true /*またはself.show.toggle() */ }) {
                 HStack{
@@ -82,7 +71,23 @@ struct ContentView: View {
                 Informations(user: user)
                 //こう書いておかないとmissing as ancestorエラーが時々でる
             }
-              
+            
+            Button(action: { self.goTakePhoto = true /*またはself.show.toggle() */ }) {
+                HStack{
+                    Image(systemName: "camera")
+                    Text("撮影")
+                }
+                    .foregroundColor(Color.white)
+                    .font(Font.largeTitle)
+            }
+                .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
+                .background(Color.black)
+                .padding()
+            .sheet(isPresented: self.$goTakePhoto) {
+                 CameraPage(user: user)
+            }
+            
+
             //送信するとボタンの色が変わる演出
             if self.user.isSendData {
                 Button(action: {self.goSendData = true /*またはself.show.toggle() */}) {
@@ -145,6 +150,8 @@ struct ContentView: View {
                     //データの初期化
                     self.user.date = Date()
                     self.user.id = ""
+                    self.user.imageNum = 0
+                    self.user.selected_side = 0
                     self.user.selected_hospital = 0
                     self.user.selected_disease = 0
                     self.user.free_disease = ""

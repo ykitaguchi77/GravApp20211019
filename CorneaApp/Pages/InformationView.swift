@@ -12,6 +12,8 @@ struct Informations: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.managedObjectContext) private var viewContext
     @State var isSaved = false
+    @State private var goTakePhoto: Bool = false  //撮影ボタン
+
     
     @State var datas = ["item1", "item2", "item3"]
     @State var itemSelection:String?
@@ -38,7 +40,15 @@ struct Informations: View {
                                      }
                             }
                     
-                        
+                        Picker(selection: $user.selected_side,
+                                   label: Text("右or左")) {
+                            ForEach(0..<user.side.count) {
+                                Text(self.user.side[$0])
+                                    }
+                            }
+                            .onChange(of: user.selected_side) { _ in
+                                self.user.isSendData = false
+                                }
                         
                         Picker(selection: $user.selected_disease,
                                    label: Text("疾患")) {
@@ -46,6 +56,9 @@ struct Informations: View {
                                 Text(self.user.disease[$0])
                                     }
                             }
+                           .onChange(of: user.selected_disease) { _ in
+                               self.user.isSendData = false
+                               }
                         
                         HStack{
                             Text("自由記載欄")
@@ -60,8 +73,10 @@ struct Informations: View {
             
             Spacer()
             Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-            }) {
+                self.presentationMode.wrappedValue.dismiss()
+               }
+                
+            ) {
                 Text("保存")
                     .foregroundColor(Color.white)
                     .font(Font.largeTitle)
@@ -69,6 +84,9 @@ struct Informations: View {
                 .frame(minWidth:0, maxWidth:CGFloat.infinity, minHeight: 75)
                 .background(Color.black)
                 .padding()
+                .sheet(isPresented: self.$goTakePhoto) {
+                     CameraPage(user: user)
+                }
     }
 }
 

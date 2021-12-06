@@ -214,8 +214,8 @@
 			children = (
 				BFA5E1672733D9FC004CA0D8 /* ViewModel.swift */,
 				BF94CD5F262BF98E00AAC1A3 /* CorneaAppApp.swift */,
-				BF94CD61262BF98E00AAC1A3 /* ContentView.swift */,
 				BF94CE02262CFD5C00AAC1A3 /* CameraPage.swift */,
+				BF94CD61262BF98E00AAC1A3 /* ContentView.swift */,
 				BF94CDBE262C1CB400AAC1A3 /* InformationView.swift */,
 				BFA5E1692737FF24004CA0D8 /* SavedDataView.swift */,
 				BF94CDC3262C1CC000AAC1A3 /* SendDataView.swift */,

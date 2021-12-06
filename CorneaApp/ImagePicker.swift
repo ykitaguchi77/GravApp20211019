@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct Imagepicker : UIViewControllerRepresentable {
-    
+    @ObservedObject var user: User
     @Binding var show:Bool
     @Binding var image:Data
+    
     var sourceType:UIImagePickerController.SourceType
  
     func makeCoordinator() -> Imagepicker.Coodinator {
@@ -31,7 +32,7 @@ struct Imagepicker : UIViewControllerRepresentable {
     }
     
     class Coodinator: NSObject,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-        
+
         var parent : Imagepicker
         
         init(parent : Imagepicker){
@@ -56,7 +57,7 @@ struct Imagepicker : UIViewControllerRepresentable {
             //撮影した画像をresultHolderに格納する
             let imageOrientation = getImageOrientation()
             let rawImage = UIImage(cgImage: cropped).rotatedBy(orientation: imageOrientation)
-            setImage(cgImage: rawImage.cgImage!)
+            setImage(progress: 0, cgImage: rawImage.cgImage!)
         }
     }
 }
