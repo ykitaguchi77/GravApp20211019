@@ -96,7 +96,7 @@ class ResultHolder{
         data.pq5 = Answers["q5"] ?? ""
         data.pq6 = Answers["q6"] ?? ""
         data.pq7 = Answers["q7"] ?? ""
-        data.pq7 = Answers["q8"] ?? ""
+        data.pq8 = Answers["q8"] ?? ""
         let jsonEncoder = JSONEncoder()
         jsonEncoder.outputFormatting = .sortedKeys
         let jsonData = (try? jsonEncoder.encode(data)) ?? Data()
